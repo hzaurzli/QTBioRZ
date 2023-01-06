@@ -7,6 +7,8 @@ import delect_phage_dots
 import smallrunze
 from Bio.Blast.Applications import NcbimakeblastdbCommandline
 from Bio.Blast.Applications import NcbiblastnCommandline
+from Bio.Blast.Applications import NcbiblastpCommandline
+from Bio import SeqIO
 
 
 class pages(smallrunze.Ui_MainWindow,QMainWindow):
@@ -91,10 +93,8 @@ class pages(smallrunze.Ui_MainWindow,QMainWindow):
         print(openfile_name)
         self.textBrowser_9.setText(openfile_name)
 
-    def blastn(self):
-        self.textBrowser_7.setText('Running! please wait')
-        QApplication.processEvents()  # 逐条打印状态
 
+    def blastn(self):
         ref = self.textBrowser_4.toPlainText()
         query = self.textBrowser_5.toPlainText()
         blastdb = self.textBrowser_9.toPlainText()
@@ -106,37 +106,49 @@ class pages(smallrunze.Ui_MainWindow,QMainWindow):
         path = os.getcwd()
         path = '/'.join(path.split('\\'))
 
-        if len(evalue) == 0:
-            evalue = 0.000001
+        def is_fasta(filename):
+            with open(filename, "r") as handle:
+                fasta = SeqIO.parse(handle, "fasta")
+                return any(fasta)  # False when `fasta` is empty, i.e. wasn't a FASTA file
+
+
+        if any([len(ref),len(query),len(blastdb),len(format)]) == False:
+            QMessageBox.warning(self, "warning", "Please add correct file path!", QMessageBox.Cancel)
         else:
-            evalue = evalue
+            if is_fasta(ref) == False or is_fasta(query) == False:
+                QMessageBox.critical(self, "error", "check fasta file format!")
+            else:
+                if len(evalue) == 0:
+                    evalue = 0.000001
+                else:
+                    evalue = evalue
 
-        if len(format) == 0:
-            format = 6
-        else:
-            format = format
+                if len(format) == 0:
+                    format = 6
+                else:
+                    format = format
 
-        makedb = NcbimakeblastdbCommandline(path + "/blast-BLAST_VERSION+/bin/makeblastdb.exe",
-                                            dbtype = 'nucl',
-                                            input_file = ref,
-                                            out = blastdb)
-        stdout,stderr = makedb()
+                self.textBrowser_7.setText('Running! please wait')
+                QApplication.processEvents()  # 逐条打印状态
 
-        blastn = NcbiblastnCommandline(path + "/blast-BLAST_VERSION+/bin/blastn.exe",
-                                       query = query,
-                                       db = blastdb,
-                                       outfmt = format,
-                                       evalue= float(evalue),
-                                       out = out)
+                makedb = NcbimakeblastdbCommandline(path + "/blast-BLAST_VERSION+/bin/makeblastdb.exe",
+                                                    dbtype='nucl',
+                                                    input_file=ref,
+                                                    out=blastdb)
+                makedb()
 
-        stdout,stderr = blastn()
-        self.textBrowser_7.setText('Finished!!!')
+                blastn = NcbiblastnCommandline(path + "/blast-BLAST_VERSION+/bin/blastn.exe",
+                                               query=query,
+                                               db=blastdb,
+                                               outfmt=format,
+                                               evalue=float(evalue),
+                                               out=out)
+
+                blastn()
+                self.textBrowser_7.setText('Finished!!!')
 
 
     def blastp(self):
-        self.textBrowser_8.setText('Running! please wait')
-        QApplication.processEvents()  # 逐条打印状态
-
         ref = self.textBrowser_3.toPlainText()
         query = self.textBrowser_2.toPlainText()
         blastdb = self.textBrowser.toPlainText()
@@ -148,32 +160,47 @@ class pages(smallrunze.Ui_MainWindow,QMainWindow):
         path = os.getcwd()
         path = '/'.join(path.split('\\'))
 
-        if len(evalue) == 0:
-            evalue = 0.000001
+        print(len(ref),len(query),len(blastdb),len(out))
+
+        def is_fasta(filename):
+            with open(filename, "r") as handle:
+                fasta = SeqIO.parse(handle, "fasta")
+                return any(fasta)  # False when `fasta` is empty, i.e. wasn't a FASTA file
+
+        if any([len(ref),len(query),len(blastdb),len(format)]) == False:
+            QMessageBox.warning(self, "warning", "Please add correct file path!", QMessageBox.Cancel)
         else:
-            evalue = evalue
+            if is_fasta(ref) == False or is_fasta(query) == False:
+                QMessageBox.critical(self, "error", "check fasta file format!")
+            else:
+                if len(evalue) == 0:
+                    evalue = 0.000001
+                else:
+                    evalue = evalue
 
-        if len(format) == 0:
-            format = 6
-        else:
-            format = format
+                if len(format) == 0:
+                    format = 6
+                else:
+                    format = format
 
-        makedb = NcbimakeblastdbCommandline(path + "/blast-BLAST_VERSION+/bin/makeblastdb.exe",
-                                            dbtype = 'prot',
-                                            input_file = ref,
-                                            out = blastdb)
-        stdout,stderr = makedb()
+                self.textBrowser_7.setText('Running! please wait')
+                QApplication.processEvents()  # 逐条打印状态
 
-        blastn = NcbiblastnCommandline(path + "/blast-BLAST_VERSION+/bin/blastp.exe",
-                                       query = query,
-                                       db = blastdb,
-                                       outfmt = format,
-                                       evalue= float(evalue),
-                                       out = out)
+                makedb = NcbimakeblastdbCommandline(path + "/blast-BLAST_VERSION+/bin/makeblastdb.exe",
+                                                    dbtype='nucl',
+                                                    input_file=ref,
+                                                    out=blastdb)
+                makedb()
 
-        stdout,stderr = blastp()
-        self.textBrowser_8.setText('Finished!!!')
+                blastp = NcbiblastpCommandline(path + "/blast-BLAST_VERSION+/bin/blastn.exe",
+                                               query=query,
+                                               db=blastdb,
+                                               outfmt=format,
+                                               evalue=float(evalue),
+                                               out=out)
 
+                blastp()
+                self.textBrowser_7.setText('Finished!!!')
 
 
 if __name__ == "__main__":
