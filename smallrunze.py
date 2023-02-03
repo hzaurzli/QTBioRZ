@@ -18,7 +18,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.stackedWidget = QtWidgets.QStackedWidget(self.centralwidget)
-        self.stackedWidget.setGeometry(QtCore.QRect(10, 10, 771, 551))
+        self.stackedWidget.setGeometry(QtCore.QRect(0, 10, 771, 551))
         self.stackedWidget.setObjectName("stackedWidget")
         self.page = QtWidgets.QWidget()
         self.page.setObjectName("page")
@@ -105,7 +105,7 @@ class Ui_MainWindow(object):
         self.textBrowser_6.setGeometry(QtCore.QRect(40, 390, 241, 31))
         self.textBrowser_6.setObjectName("textBrowser_6")
         self.textBrowser_7 = QtWidgets.QTextBrowser(self.page)
-        self.textBrowser_7.setGeometry(QtCore.QRect(440, 90, 301, 211))
+        self.textBrowser_7.setGeometry(QtCore.QRect(460, 80, 301, 211))
         self.textBrowser_7.setObjectName("textBrowser_7")
         self.pushButton_10 = QtWidgets.QPushButton(self.page)
         self.pushButton_10.setGeometry(QtCore.QRect(310, 290, 81, 31))
@@ -257,15 +257,21 @@ class Ui_MainWindow(object):
         self.actionBLASTp.setObjectName("actionBLASTp")
         self.actionCount_dots = QtWidgets.QAction(MainWindow)
         self.actionCount_dots.setObjectName("actionCount_dots")
+        self.actionPeptideActivity = QtWidgets.QAction(MainWindow)
+        self.actionPeptideActivity.setObjectName("actionPeptideActivity")
+        self.actionLysogen = QtWidgets.QAction(MainWindow)
+        self.actionLysogen.setObjectName("actionLysogen")
         self.menuBLAST.addAction(self.actionBLASTn)
         self.menuBLAST.addSeparator()
         self.menuBLAST.addAction(self.actionBLASTp)
         self.menuCount_dots.addAction(self.actionCount_dots)
+        self.menuCount_dots.addAction(self.actionPeptideActivity)
+        self.menuCount_dots.addAction(self.actionLysogen)
         self.menubar.addAction(self.menuBLAST.menuAction())
         self.menubar.addAction(self.menuCount_dots.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -301,6 +307,8 @@ class Ui_MainWindow(object):
         self.actionBLASTn.setText(_translate("MainWindow", "BLASTn"))
         self.actionBLASTp.setText(_translate("MainWindow", "BLASTp"))
         self.actionCount_dots.setText(_translate("MainWindow", "Count dots"))
+        self.actionPeptideActivity.setText(_translate("MainWindow", "PeptideActivity"))
+        self.actionLysogen.setText(_translate("MainWindow", "Lysogen"))
 
 
 if __name__ == "__main__":

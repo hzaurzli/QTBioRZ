@@ -4,6 +4,8 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 import delect_phage_dots
+import activity
+import lysogen
 import smallrunze
 from Bio.Blast.Applications import NcbimakeblastdbCommandline
 from Bio.Blast.Applications import NcbiblastnCommandline
@@ -17,6 +19,8 @@ class pages(smallrunze.Ui_MainWindow,QMainWindow):
         self.setupUi(self)
 
         self.actionCount_dots.triggered.connect(self.dots)
+        self.actionPeptideActivity.triggered.connect(self.activity)
+        self.actionLysogen.triggered.connect(self.lysogen)
 
         self.textEdit_13.setPlaceholderText("E value: 0.000001")
         self.textEdit_10.setPlaceholderText("Format: 6")
@@ -40,61 +44,76 @@ class pages(smallrunze.Ui_MainWindow,QMainWindow):
         self.pushButton_3.clicked.connect(self.blastn)
         self.pushButton_4.clicked.connect(self.blastp)
 
-
+    ## click to new window delect_phage_dots,MyClass() is object in delect_phage_dots.py
     def dots(self):
         self.winTable = delect_phage_dots.MyClass()
         self.winTable.show()
 
 
+    ## click to new window activity,Ui_Form() is object in activity.py
+    def activity(self):
+        self.winTable = activity.Ui_Form()
+        self.winTable.show()
+
+
+    ## click to new window activity,Ui_Form() is object in activity.py
+    def lysogen(self):
+        self.winTable = lysogen.Lysogen_Form()
+        self.winTable.show()
+
+
+    # stacked widget page position
     def display1(self):
         self.stackedWidget.setCurrentIndex(0)
 
+    # stacked widget page position
     def display2(self):
         self.stackedWidget.setCurrentIndex(1)
 
     def read_file1(self):
-        openfile_name = QtWidgets.QFileDialog.getOpenFileName(self, 'choose figures', '')[0]
+        openfile_name = QtWidgets.QFileDialog.getOpenFileName(self, 'choose file', '')[0]
         print(openfile_name)
         self.textBrowser_3.setText(openfile_name)
 
     def read_file2(self):
-        openfile_name = QtWidgets.QFileDialog.getOpenFileName(self, 'choose figures', '')[0]
+        openfile_name = QtWidgets.QFileDialog.getOpenFileName(self, 'choose file', '')[0]
         print(openfile_name)
         self.textBrowser_2.setText(openfile_name)
 
     def read_file3(self):
-        openfile_name = QtWidgets.QFileDialog.getSaveFileName(self, "choose figures", "./")[0]
+        openfile_name = QtWidgets.QFileDialog.getSaveFileName(self, "choose file", "./")[0]
         print(openfile_name)
         self.textBrowser.setText(openfile_name)
 
     def read_file7(self):
-        openfile_name = QtWidgets.QFileDialog.getSaveFileName(self, "choose figures", "./")[0]
+        openfile_name = QtWidgets.QFileDialog.getSaveFileName(self, "choose file", "./")[0]
         print(openfile_name)
         self.textBrowser_10.setText(openfile_name)
 
 
     def read_file4(self):
-        openfile_name = QtWidgets.QFileDialog.getOpenFileName(self, 'choose figures', '')[0]
+        openfile_name = QtWidgets.QFileDialog.getOpenFileName(self, 'choose file', '')[0]
         print(openfile_name)
         self.textBrowser_4.setText(openfile_name)
 
     def read_file5(self):
-        openfile_name = QtWidgets.QFileDialog.getOpenFileName(self, 'choose figures', '')[0]
+        openfile_name = QtWidgets.QFileDialog.getOpenFileName(self, 'choose file', '')[0]
         print(openfile_name)
         self.textBrowser_5.setText(openfile_name)
 
     def read_file6(self):
-        openfile_name = QtWidgets.QFileDialog.getSaveFileName(self, "choose figures","./")[0]
+        openfile_name = QtWidgets.QFileDialog.getSaveFileName(self, "choose file","./")[0]
         print(openfile_name)
         self.textBrowser_6.setText(openfile_name)
 
     def read_file8(self):
-        openfile_name = QtWidgets.QFileDialog.getSaveFileName(self, "choose figures", "./")[0]
+        openfile_name = QtWidgets.QFileDialog.getSaveFileName(self, "choose file", "./")[0]
         print(openfile_name)
         self.textBrowser_9.setText(openfile_name)
 
 
     def blastn(self):
+        ## toPlainText read path of files
         ref = self.textBrowser_4.toPlainText()
         query = self.textBrowser_5.toPlainText()
         blastdb = self.textBrowser_9.toPlainText()

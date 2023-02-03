@@ -17,14 +17,14 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>0</x>
       <y>10</y>
       <width>771</width>
       <height>551</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QLabel" name="label_11">
@@ -267,8 +267,8 @@
      <widget class="QTextBrowser" name="textBrowser_7">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>90</y>
+        <x>460</x>
+        <y>80</y>
         <width>301</width>
         <height>211</height>
        </rect>
@@ -642,6 +642,8 @@
      <string>Tools</string>
     </property>
     <addaction name="actionCount_dots"/>
+    <addaction name="actionPeptideActivity"/>
+    <addaction name="actionLysogen"/>
    </widget>
    <addaction name="menuBLAST"/>
    <addaction name="menuCount_dots"/>
@@ -695,6 +697,16 @@
   <action name="actionCount_dots">
    <property name="text">
     <string>Count dots</string>
+   </property>
+  </action>
+  <action name="actionPeptideActivity">
+   <property name="text">
+    <string>PeptideActivity</string>
+   </property>
+  </action>
+  <action name="actionLysogen">
+   <property name="text">
+    <string>Lysogen</string>
    </property>
   </action>
  </widget>

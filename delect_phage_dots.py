@@ -136,6 +136,7 @@ class MyClass(QWidget):
         btn3.setFont(QtGui.QFont("", 10))
         btn3.clicked.connect(lambda: self.counting(openfile_name))  # 信号函数传参
 
+        ## show window
         self.show()
 
     def myRemovePic(self):
