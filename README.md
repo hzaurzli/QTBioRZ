@@ -34,7 +34,9 @@ Basic model refers to [manual](https://github.com/mayuefine/c_AMPs-prediction),p
 2. Activity file is for result
 
 Result:
+
 ![](https://user-images.githubusercontent.com/47686371/216492727-f3cf2a3c-d7b8-44c0-9d0c-8d648a9892de.png)
+
 First column is for sequence name,second column is for sequence,third column is for activity score，more than 0.5 indicate active peptide,or non active
 
 ## 4.Phages lysogeny
