@@ -47,6 +47,7 @@ Result:
 First column is for sequence name,second column is for sequence,third column is for activity score，more than 0.5 indicate active peptide,or non active
 
 ## 4.Phages lysogeny
+![](https://user-images.githubusercontent.com/47686371/216497709-d9fa611e-875f-4c38-af5a-ebdaf00a90ce.png)
 
 Basic model refers to [manual]([https://github.com/mayuefine/c_AMPs-prediction](https://github.com/KennthShang/PhaTYP)),please cite [PhaTYP: Predicting lifestyle for bacteriophages using BERT](https://academic.oup.com/bib/article/24/1/bbac487/6842869?login=true)
 
