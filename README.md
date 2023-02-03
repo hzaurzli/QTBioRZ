@@ -23,7 +23,7 @@ Click Run to start your program
 4. output file stores blast result
 Click Run to start your program
 
-## 2.Counting microorganism dots
+## 2.Counting microorganism colonies
 ![](https://user-images.githubusercontent.com/47686371/216492340-41c8cbb7-4588-405f-962c-a8b7ab59bfa1.png)
 
 Quick and accurate colony counting,different parameters please refer to [open-cv manual](https://docs.opencv.org/4.x/)
