@@ -23,14 +23,31 @@ Click Run to start your program
 Click Run to start your program
 
 ## 2.Counting microorganism dots
-![](https://user-images.githubusercontent.com/47686371/216489984-df58f36f-3901-42eb-bcfd-e664a81c3632.png)
+![](https://user-images.githubusercontent.com/47686371/216492340-41c8cbb7-4588-405f-962c-a8b7ab59bfa1.png)
 Quick and accurate colony counting,different parameters please refer to [open-cv manual](https://docs.opencv.org/4.x/)
 
 ## 3.Calculating anti-peptides activity
 ![](https://user-images.githubusercontent.com/47686371/216491286-e1d215cd-88f2-4f93-b584-18405b684ae4.png)
 Basic model refers to [manual](https://github.com/mayuefine/c_AMPs-prediction),please cite [Identification of antimicrobial peptides from the human gut microbiome using deep learning](https://www.nature.com/articles/s41587-022-01226-0)
 
+1. Input file(Fa) is for input fasta file
+2. Activity file is for result
+
+Result:
+![](https://user-images.githubusercontent.com/47686371/216492727-f3cf2a3c-d7b8-44c0-9d0c-8d648a9892de.png)
+First column is for sequence name,second column is for sequence,third column is for activity score，more than 0.5 indicate active peptide,or non active
+
+## 4.Phages lysogeny
+![](https://user-images.githubusercontent.com/47686371/216493305-2bbc03e5-3198-47ea-8180-f06c9698274f.png)
+Basic model refers to [manual]([https://github.com/mayuefine/c_AMPs-prediction](https://github.com/KennthShang/PhaTYP)),please cite [PhaTYP: Predicting lifestyle for bacteriophages using BERT](https://academic.oup.com/bib/article/24/1/bbac487/6842869?login=true)
+
+1. Input file(Fa) is for input fasta file
+2. Lysogen file is for result
+
+Finally,lysogen_prediction.csv is your result:
+Virulent is for virulent phage,temperate is for temperate phage
 
 
+If this software is useful,please cite <https://github.com/hzaurzli/QTBioRZ/>
 Links for Baidu：https://pan.baidu.com/s/1MGTAzY6d2AcUWZEL3QgvQA 
 Password：0rka
