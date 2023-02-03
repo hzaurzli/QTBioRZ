@@ -31,7 +31,7 @@ Quick and accurate colony counting,different parameters please refer to [open-cv
 Click Run to start your program
 
 ## 3.Calculating anti-peptides activity
-![](https://user-images.githubusercontent.com/47686371/216491286-e1d215cd-88f2-4f93-b584-18405b684ae4.png)
+![](https://user-images.githubusercontent.com/47686371/216500929-eb0eb8ed-d6f1-4169-b5be-b59a21e04d5e.png)
 
 Basic model refers to [manual](https://github.com/mayuefine/c_AMPs-prediction),please cite [Identification of antimicrobial peptides from the human gut microbiome using deep learning](https://www.nature.com/articles/s41587-022-01226-0)
 
