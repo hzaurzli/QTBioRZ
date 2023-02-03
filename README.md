@@ -12,6 +12,7 @@ A user-friendly interface visualization software,the main functions are followin
 2. Query file is for your own fasta file,which is you want to search for
 3. BLASTdb path is for reference database index
 4. output file stores blast result
+
 Click Run to start your program
 
 ![Blastp](https://user-images.githubusercontent.com/47686371/216489552-99e3828a-4c34-4dae-be8e-3c754e022a18.png)
@@ -27,6 +28,8 @@ Click Run to start your program
 
 Quick and accurate colony counting,different parameters please refer to [open-cv manual](https://docs.opencv.org/4.x/)
 
+Click Run to start your program
+
 ## 3.Calculating anti-peptides activity
 ![](https://user-images.githubusercontent.com/47686371/216491286-e1d215cd-88f2-4f93-b584-18405b684ae4.png)
 
@@ -35,6 +38,8 @@ Basic model refers to [manual](https://github.com/mayuefine/c_AMPs-prediction),p
 1. Input file(Fa) is for input fasta file
 2. Activity file is for result
 
+Click Run to start your program
+
 Result:
 
 ![](https://user-images.githubusercontent.com/47686371/216492727-f3cf2a3c-d7b8-44c0-9d0c-8d648a9892de.png)
@@ -42,12 +47,13 @@ Result:
 First column is for sequence name,second column is for sequence,third column is for activity score，more than 0.5 indicate active peptide,or non active
 
 ## 4.Phages lysogeny
-![](https://user-images.githubusercontent.com/47686371/216493305-2bbc03e5-3198-47ea-8180-f06c9698274f.png)
 
 Basic model refers to [manual]([https://github.com/mayuefine/c_AMPs-prediction](https://github.com/KennthShang/PhaTYP)),please cite [PhaTYP: Predicting lifestyle for bacteriophages using BERT](https://academic.oup.com/bib/article/24/1/bbac487/6842869?login=true)
 
 1. Input file(Fa) is for input fasta file
 2. Lysogen file is for result
+
+Click Run to start your program
 
 Finally,lysogen_prediction.csv is your result:
 Virulent is for virulent phage,temperate is for temperate phage
