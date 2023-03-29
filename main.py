@@ -12,6 +12,16 @@ from Bio.Blast.Applications import NcbiblastnCommandline
 from Bio.Blast.Applications import NcbiblastpCommandline
 from Bio import SeqIO
 
+class MyWindow(QtWidgets.QPushButton):
+    def __init__(self):
+        QtWidgets.QPushButton.__init__(self)
+
+    def load_data(self, sp):
+        for i in range(1, 11):              #模拟主程序加载过程
+            time.sleep(2)                   # 加载数据
+            sp.showMessage("loading... {0}%".format(i * 10), QtCore.Qt.AlignHCenter |QtCore.Qt.AlignBottom, QtCore.Qt.black)
+            QtWidgets.qApp.processEvents()  # 允许主进程处理事件
+
 
 class pages(smallrunze.Ui_MainWindow,QMainWindow):
     def __init__(self, parent=None):
@@ -225,6 +235,18 @@ class pages(smallrunze.Ui_MainWindow,QMainWindow):
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
+    # 启动预加载
+    splash = QtWidgets.QSplashScreen(QtGui.QPixmap("logo.png"))
+    splash.setFont(QFont('微软雅黑', 30))
+    splash.showMessage("loading... 0%", QtCore.Qt.AlignHCenter | QtCore.Qt.AlignBottom, QtCore.Qt.black)
+    splash.show()  # 显示启动界面
+    QtWidgets.qApp.processEvents()  # 处理主进程事件
+    window = MyWindow()
+    window.setWindowTitle("QSplashScreen类使用")
+    window.resize(500, 50)
+    window.load_data(splash)  # 加载数据
+    splash.finish(window)  # 隐藏启动界面
+
     Main_Window = pages()
     Main_Window.show()
     sys.exit(app.exec_())
