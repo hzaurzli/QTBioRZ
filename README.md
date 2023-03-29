@@ -63,6 +63,6 @@ Virulent is for virulent phage,temperate is for temperate phage
 # Download
 If this software is useful,please cite <https://github.com/hzaurzli/QTBioRZ/>
 
-Links for Baidu：https://pan.baidu.com/s/1MGTAzY6d2AcUWZEL3QgvQA 
+link：https://pan.baidu.com/s/1hlT-DQF-fCS9W5Kp5oh3KQ 
 
-Password：0rka
+password：zhsn
