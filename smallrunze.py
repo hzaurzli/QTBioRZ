@@ -261,12 +261,15 @@ class Ui_MainWindow(object):
         self.actionPeptideActivity.setObjectName("actionPeptideActivity")
         self.actionLysogen = QtWidgets.QAction(MainWindow)
         self.actionLysogen.setObjectName("actionLysogen")
+        self.actionPrimer = QtWidgets.QAction(MainWindow)
+        self.actionPrimer.setObjectName("actionPrimer")
         self.menuBLAST.addAction(self.actionBLASTn)
         self.menuBLAST.addSeparator()
         self.menuBLAST.addAction(self.actionBLASTp)
         self.menuCount_dots.addAction(self.actionCount_dots)
         self.menuCount_dots.addAction(self.actionPeptideActivity)
         self.menuCount_dots.addAction(self.actionLysogen)
+        self.menuCount_dots.addAction(self.actionPrimer)
         self.menubar.addAction(self.menuBLAST.menuAction())
         self.menubar.addAction(self.menuCount_dots.menuAction())
 
@@ -309,6 +312,7 @@ class Ui_MainWindow(object):
         self.actionCount_dots.setText(_translate("MainWindow", "Count dots"))
         self.actionPeptideActivity.setText(_translate("MainWindow", "PeptideActivity"))
         self.actionLysogen.setText(_translate("MainWindow", "Lysogen"))
+        self.actionPrimer.setText(_translate("MainWindow", "Primer"))
 
 
 if __name__ == "__main__":

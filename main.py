@@ -7,6 +7,7 @@ import delect_phage_dots
 import activity
 import lysogen
 import smallrunze
+from primer import Primer_Form
 from Bio.Blast.Applications import NcbimakeblastdbCommandline
 from Bio.Blast.Applications import NcbiblastnCommandline
 from Bio.Blast.Applications import NcbiblastpCommandline
@@ -31,6 +32,7 @@ class pages(smallrunze.Ui_MainWindow,QMainWindow):
         self.actionCount_dots.triggered.connect(self.dots)
         self.actionPeptideActivity.triggered.connect(self.activity)
         self.actionLysogen.triggered.connect(self.lysogen)
+        self.actionPrimer.triggered.connect(self.primer)
 
         self.textEdit_13.setPlaceholderText("E value: 0.000001")
         self.textEdit_10.setPlaceholderText("Format: 6")
@@ -60,19 +62,26 @@ class pages(smallrunze.Ui_MainWindow,QMainWindow):
         self.winTable.show()
 
 
-    ## click to new window activity,Ui_Form() is object in activity.py
+    ## click to new window activity,Activity_Form() is object in activity.py
     def activity(self):
-        self.winTable = activity.Ui_Form()
+        self.winTable = activity.Activity_Form()
         self.winTable.show()
 
 
-    ## click to new window activity,Ui_Form() is object in activity.py
+    ## click to new window lysogen,Lysogen_Form() is object in lysogen.py
     def lysogen(self):
         self.winTable = lysogen.Lysogen_Form()
         self.winTable.show()
 
+    ## click to new window primer,Primer_Form() is object in primer.py
+    def primer(self):
+        self.form = QtWidgets.QMainWindow()
+        self.ui = Primer_Form()
+        self.ui.setupUi(self.form)
+        self.form.show()
 
-    # stacked widget page position
+
+        # stacked widget page position
     def display1(self):
         self.stackedWidget.setCurrentIndex(0)
 

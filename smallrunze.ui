@@ -644,6 +644,7 @@
     <addaction name="actionCount_dots"/>
     <addaction name="actionPeptideActivity"/>
     <addaction name="actionLysogen"/>
+    <addaction name="actionPrimer"/>
    </widget>
    <addaction name="menuBLAST"/>
    <addaction name="menuCount_dots"/>
@@ -707,6 +708,11 @@
   <action name="actionLysogen">
    <property name="text">
     <string>Lysogen</string>
+   </property>
+  </action>
+  <action name="actionPrimer">
+   <property name="text">
+    <string>Primer</string>
    </property>
   </action>
  </widget>

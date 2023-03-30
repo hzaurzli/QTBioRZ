@@ -18,7 +18,7 @@ from numpy import loadtxt, savetxt
 import os
 
 
-class Ui_Form(QWidget):
+class Activity_Form(QWidget):
     def __init__(self):
         super().__init__()
         self.initUI()
@@ -120,7 +120,7 @@ class Ui_Form(QWidget):
 
             os.popen(r".\perl\bin\perl.exe .\perl\format.pl %s none > %s"
                      % (fasta, path + '/tmp.txt'))
-            time.sleep(5)
+            time.sleep(10)
 
             model = load_model('./models/Activity/lstm.h5')
             x = loadtxt(path + '/tmp.txt', delimiter=",")
@@ -168,6 +168,6 @@ class Ui_Form(QWidget):
 if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)
-    mc = Ui_Form()
+    mc = Activity_Form()
     mc.show()
     app.exec_()
