@@ -59,7 +59,11 @@ Click Run to start your program
 Finally,lysogen_prediction.csv is your result:
 Virulent is for virulent phage,temperate is for temperate phage
 
+## 5.In silico PCR
+![](https://user-images.githubusercontent.com/47686371/228795310-06c04947-7668-492a-9a2e-deca58c1608e.png)
 
+We will produce two files, one is the amplified sequence and the other is the location of the amplified sequence on the genome.
+Basic script refers to [https://github.com/egonozer/in_silico_pcr](https://github.com/egonozer/in_silico_pcr)
 # Download
 If this software is useful,please cite <https://github.com/hzaurzli/QTBioRZ/>
 
