@@ -198,7 +198,7 @@ class pages(smallrunze.Ui_MainWindow,QMainWindow):
         path = os.getcwd()
         path = '/'.join(path.split('\\'))
 
-        print(len(ref),len(query),len(blastdb),len(out))
+        print(len(ref),len(query),len(blastdb),len(out),path)
 
         def is_fasta(filename):
             with open(filename, "r") as handle:
@@ -221,16 +221,16 @@ class pages(smallrunze.Ui_MainWindow,QMainWindow):
                 else:
                     format = format
 
-                self.textBrowser_7.setText('Running! please wait')
+                self.textBrowser_8.setText('Running! please wait')
                 QApplication.processEvents()  # 逐条打印状态
 
                 makedb = NcbimakeblastdbCommandline(path + "/blast-BLAST_VERSION+/bin/makeblastdb.exe",
-                                                    dbtype='nucl',
+                                                    dbtype='prot',
                                                     input_file=ref,
                                                     out=blastdb)
                 makedb()
 
-                blastp = NcbiblastpCommandline(path + "/blast-BLAST_VERSION+/bin/blastn.exe",
+                blastp = NcbiblastpCommandline(path + "/blast-BLAST_VERSION+/bin/blastp.exe",
                                                query=query,
                                                db=blastdb,
                                                outfmt=format,
@@ -238,7 +238,7 @@ class pages(smallrunze.Ui_MainWindow,QMainWindow):
                                                out=out)
 
                 blastp()
-                self.textBrowser_7.setText('Finished!!!')
+                self.textBrowser_8.setText('Finished!!!')
 
 
 if __name__ == "__main__":
