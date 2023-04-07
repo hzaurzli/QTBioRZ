@@ -67,6 +67,6 @@ Basic script refers to [https://github.com/egonozer/in_silico_pcr](https://githu
 # Download
 If this software is useful,please cite <https://github.com/hzaurzli/QTBioRZ/>
 
-Link：https://pan.baidu.com/s/1alwBHIHx0OA7hPs9aK4zBA 
+Links：https://pan.baidu.com/s/1282NS0K_kiZGZ_X-mYWeZw
 
-Password：g384
+Password：srzd
